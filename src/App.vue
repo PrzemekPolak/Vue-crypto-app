@@ -1,10 +1,11 @@
 <script setup>
-import HelloWorld from "./components/HelloWorld.vue";
-import TheWelcome from "./components/TheWelcome.vue";
+import SummaryChart from "./components/SummaryChart.vue";
+import CurrentBalance from "./components/CurrentBalance.vue";
+import SelectionSection from "./components/SelectionSection.vue";
 </script>
 
 <template>
-  <header>
+  <!-- <header>
     <img
       alt="Vue logo"
       class="logo"
@@ -20,11 +21,32 @@ import TheWelcome from "./components/TheWelcome.vue";
 
   <main>
     <TheWelcome />
+  </main> -->
+
+  <main>
+    <div>
+      <div>I am a header</div>
+      <!-- 1c search
+      2c notif
+      3c menu icon -->
+    </div>
+    <div style="display: grid; gap: 32px;">
+      <CurrentBalance />
+      <SummaryChart />
+      <SelectionSection />
+    </div>
   </main>
 </template>
 
 <style scoped>
-header {
+main {
+  background-color: white;
+  color: #0A041C;
+
+  padding-left: 68px;
+  padding-right: 68px;
+}
+/* header {
   line-height: 1.5;
 }
 
@@ -49,5 +71,5 @@ header {
     place-items: flex-start;
     flex-wrap: wrap;
   }
-}
+} */
 </style>
