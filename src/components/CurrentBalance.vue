@@ -2,16 +2,16 @@
 
 <template>
   <div class="main">
-    <div style="display: flex;justify-content: space-between;">
+    <div style="display: flex; justify-content: space-between">
       <div class="balance_header">Current balance</div>
       <div class="three_dots">...</div>
     </div>
     <div class="money_balance">$21 432.23</div>
-    <div style="display: flex; margin-top: 16px;">
+    <div style="display: flex; margin-top: 16px">
       <div>^</div>
       <div class="balance_change_text">12% vs last month</div>
     </div>
-    <div style="display: flex; gap: 8px; margin-top: auto;">
+    <div style="display: flex; gap: 8px; margin-top: auto">
       <button class="purple_btn">Quick Invest</button>
       <button class="white_btn">Show Report</button>
     </div>
@@ -20,7 +20,7 @@
 
 <style scoped>
 .main {
-  background: #F7F7F9;
+  background: #f7f7f9;
   border-radius: 16px;
   padding: 32px;
   display: flex;
@@ -46,32 +46,32 @@
   margin-top: 40px;
 }
 .money_balance:first-letter {
-  color: #9896A1;
+  color: #9896a1;
 }
 .balance_change_text {
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
-  color: #2DC78F;
+  color: #2dc78f;
 }
 .purple_btn {
-  background: #7445FB;
+  background: #7445fb;
   border-radius: 4px;
   padding: 8px 16px;
   font-weight: 600;
   font-size: 14px;
   line-height: 24px;
-  color: #FFFFFF;
+  color: #ffffff;
   border: none;
 }
 .white_btn {
-  background: #FFFFFF;
-  border: 1px solid #EBEBF3;
+  background: #ffffff;
+  border: 1px solid #ebebf3;
   border-radius: 4px;
   padding: 8px 16px;
   font-weight: 600;
   font-size: 14px;
   line-height: 24px;
-  color: #7445FB;
+  color: #7445fb;
 }
 </style>

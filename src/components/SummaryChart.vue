@@ -6,7 +6,7 @@
 
 <style scoped>
 .main {
-  background: #F7F7F9;
+  background: #f7f7f9;
   border-radius: 16px;
   width: 500px;
   height: 336px;

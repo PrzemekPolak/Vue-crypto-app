@@ -30,7 +30,7 @@ import SelectionSection from "./components/SelectionSection.vue";
       2c notif
       3c menu icon -->
     </div>
-    <div style="display: grid; gap: 32px;">
+    <div style="display: grid; gap: 32px">
       <CurrentBalance />
       <SummaryChart />
       <SelectionSection />
@@ -41,7 +41,7 @@ import SelectionSection from "./components/SelectionSection.vue";
 <style scoped>
 main {
   background-color: white;
-  color: #0A041C;
+  color: #0a041c;
 
   padding-left: 68px;
   padding-right: 68px;
