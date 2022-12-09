@@ -48,24 +48,24 @@ const plugins = [
   },
   {
     // Fill points in legend without changing points in line
-    afterDraw: function(c) {
+    afterDraw: function (c) {
       let legends = c.legend.legendItems;
-      legends.forEach(function(e) {
-        let pointColor = e.strokeStyle
+      legends.forEach(function (e) {
+        let pointColor = e.strokeStyle;
         e.fillStyle = pointColor;
       });
-    }
+    },
   },
   {
     // Display second tooltip with x-axis data on bottom
     afterDraw: (chart) => {
       if (chart.tooltip._active.length) {
-        let value = chart.data.labels[chart.tooltip._active[0].index]
+        let value = chart.data.labels[chart.tooltip._active[0].index];
         let posX = chart.tooltip._active[0].element.x;
-        let posY = chart.scales.y.bottom
-        chart.ctx.fillText(value, posX + 8, posY - 8)
+        let posY = chart.scales.y.bottom;
+        chart.ctx.fillText(value, posX + 8, posY - 8);
       }
-    }
+    },
   },
 ];
 </script>

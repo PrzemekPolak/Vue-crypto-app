@@ -2,6 +2,7 @@
 import SummaryChart from "./components/SummaryChart.vue";
 import CurrentBalance from "./components/CurrentBalance.vue";
 import SelectionSection from "./components/SelectionSection.vue";
+import HeaderSection from "./components/HeaderSection.vue";
 </script>
 
 <template>
@@ -25,7 +26,7 @@ import SelectionSection from "./components/SelectionSection.vue";
 
   <main>
     <div>
-      <div>I am a header</div>
+      <HeaderSection />
       <!-- 1c search
       2c notif
       3c menu icon -->

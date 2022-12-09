@@ -48,7 +48,7 @@ var chartData = {
       pointBorderColor: "#dddddf",
       pointBackgroundColor: "#FFFFFF",
       label: "Szary",
-      borderDash: [10,5],
+      borderDash: [10, 5],
       data: [
         5, 5.51, 6.31, 6.97, 7.55, 8.28, 8.82, 9.72, 10.52, 10.56, 11.44, 11.84,
         12.82, 13.53, 14.07, 14.43, 14.57, 15.11, 15.41, 15.44, 15.84, 16.59,
