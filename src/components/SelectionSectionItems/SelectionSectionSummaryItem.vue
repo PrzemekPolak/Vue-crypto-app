@@ -6,6 +6,7 @@ const props = defineProps({
   cryptoShortName: String,
   cryptoPrice: Number,
   cryptoChange: Number,
+  cryptoLogo: String,
 });
 
 var chartData = {
@@ -51,6 +52,7 @@ var chartOptions = {
   elements: {
     point: {
       radius: 0,
+      hoverRadius: 0,
     },
   },
   plugins: {
@@ -66,24 +68,25 @@ var chartOptions = {
 
 <template>
   <div class="main_item">
-    <div>I am logo</div>
-    <div>
-      <div class="value_el">{{ props.cryptoShortName }}</div>
-      <div class="label_el">{{ props.cryptoName }}</div>
+    <img class="crypto_img" :src="'src/assets/'+props.cryptoLogo+'.png'"/>
+    <div style="align-self:center;">
+      <div class="label_el">{{ props.cryptoShortName }}</div>
+      <div class="value_el">{{ props.cryptoName }}</div>
     </div>
-    <div>
+    <div style="align-self:center;">
       <div class="label_el">price</div>
       <div class="value_el">${{ props.cryptoPrice }}</div>
     </div>
-    <div>
-      <div class="label_el">change</div>
+    <div style="align-self:center;">
+      <div class="label_el">Change</div>
       <div class="change_el">+{{ props.cryptoChange }}%</div>
     </div>
-    <div style="width: 400px">
+    <div>
       <ChartLine
         :chartData="chartData"
         :chartOptions="chartOptions"
         chartId="SelectionChart"
+        :useCustomPlugins=false
       />
     </div>
   </div>
@@ -92,13 +95,38 @@ var chartOptions = {
 <style scoped>
 .main_item {
   width: 100%;
+  height: 90px;
   display: flex;
-  /* height: 400px; */
+  padding: 20px;
+  justify-content: space-between;
+  background: #FFFFFF;
+  margin-bottom: 8px;
+  border: 1px solid #EBEBF3;
+  border-radius: 8px;
 }
 .label_el {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  color: #9896A1;
+  margin-bottom: 6px;
 }
 .value_el {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 14px;
+  color: #0A041C;
+  width: 100px;
 }
 .change_el {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 14px;
+  color: #2DC78F;
+/* color: #EA4D4D; */
+}
+.crypto_img {
+  width: 48px;
+  height: 48px;
 }
 </style>

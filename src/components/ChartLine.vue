@@ -26,9 +26,10 @@ const props = defineProps({
   chartData: Object,
   chartOptions: Object,
   chartId: String,
+  useCustomPlugins: Boolean,
 });
 
-const plugins = [
+let plugins = [
   {
     // Draw verticle line on hover
     afterDraw: (chart) => {
@@ -68,6 +69,10 @@ const plugins = [
     },
   },
 ];
+
+if (!props.useCustomPlugins) {
+  plugins = []
+}
 </script>
 
 <template>

@@ -42,5 +42,8 @@ var options = {
 .selecion_options {
   display: flex;
   gap: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #EBEBF3;
+  margin-bottom: 32px;
 }
 </style>

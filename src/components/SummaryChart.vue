@@ -125,6 +125,7 @@ var chartOptions = {
       :chartData="chartData"
       :chartOptions="chartOptions"
       chartId="SummaryChart"
+      :useCustomPlugins=true
     />
   </div>
 </template>

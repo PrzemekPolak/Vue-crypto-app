@@ -1,7 +1,7 @@
 <script setup>
 import SearchBar from "./SearchBar.vue";
 import NotificationIcon from "./NotificationIcon.vue";
-import MenuIcon from "./MenuIcon.vue";
+import MenuIcon from "./icons/MenuIcon.vue";
 </script>
 
 <template>

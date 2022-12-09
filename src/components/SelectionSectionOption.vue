@@ -24,10 +24,13 @@ const props = defineProps({
   font-size: 16px;
   line-height: 24px;
   color: #9896a1;
-  margin-bottom: 16px;
 }
 .options_label {
-  padding: 8px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 8px 0;
+  color: #9896A1;
 }
 [type="radio"] {
   position: absolute;
@@ -36,9 +39,15 @@ const props = defineProps({
 [type="radio"]:checked + .options_label::after {
   content: "";
   position: absolute;
-  bottom: -16px;
+  bottom: -10px;
   left: 0;
   width: 100%;
-  border: solid 2px black;
+  border: solid 2px #7445FB;
+}
+[type="radio"]:checked + .options_label {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #0A041C;
 }
 </style>
