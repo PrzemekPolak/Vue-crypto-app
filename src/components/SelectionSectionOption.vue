@@ -1,14 +1,21 @@
 <script setup>
 const props = defineProps({
   name: String,
-})
+});
 </script>
 
 <template>
-    <div class="option_container">
-        <input type="radio" :id="props.name+'_option'" name="radio_selection_group" :checked="props.name == 'Summary'">
-        <label :for="props.name+'_option'" class="options_label">{{props.name}}</label>
-      </div>
+  <div class="option_container">
+    <input
+      type="radio"
+      :id="props.name + '_option'"
+      name="radio_selection_group"
+      :checked="props.name == 'Summary'"
+    />
+    <label :for="props.name + '_option'" class="options_label">{{
+      props.name
+    }}</label>
+  </div>
 </template>
 
 <style scoped>

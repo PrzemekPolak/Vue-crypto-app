@@ -7,24 +7,27 @@ import SelectionSectionAnalysis from "./SelectionSectionItems/SelectionSectionAn
 import SelectionSectionOption from "./SelectionSectionOption.vue";
 import { ref } from "vue";
 
-var visibleSelectionItem = ref('Summary');
+var visibleSelectionItem = ref("Summary");
 var options = {
-  "Summary": SelectionSectionSummary,
-  "Table": SelectionSectionTable,
-  "Charts": SelectionSectionCharts,
-  "Reporting": SelectionSectionReporting,
-  "Analysis": SelectionSectionAnalysis
-}
+  Summary: SelectionSectionSummary,
+  Table: SelectionSectionTable,
+  Charts: SelectionSectionCharts,
+  Reporting: SelectionSectionReporting,
+  Analysis: SelectionSectionAnalysis,
+};
 </script>
 
 <template>
   <div class="main">
     <div class="selecion_options">
       <div v-for="option in Object.keys(options)" v-bind:key="option">
-        <SelectionSectionOption :name=option @click="(visibleSelectionItem = option)" />
+        <SelectionSectionOption
+          :name="option"
+          @click="visibleSelectionItem = option"
+        />
       </div>
     </div>
-    <component :is="options[visibleSelectionItem]"/>
+    <component :is="options[visibleSelectionItem]" />
   </div>
 </template>
 
