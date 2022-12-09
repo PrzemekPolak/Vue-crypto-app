@@ -1,4 +1,7 @@
-<script setup></script>
+<script setup>
+import StandardButton from "./StandardButton.vue";
+
+</script>
 
 <template>
   <div class="main">
@@ -12,8 +15,14 @@
       <div class="balance_change_text">12% vs last month</div>
     </div>
     <div style="display: flex; gap: 8px; margin-top: auto">
-      <button class="purple_btn">Quick Invest</button>
-      <button class="white_btn">Show Report</button>
+      <StandardButton
+        text="Quick Invest"
+        colorTemplate="purple"
+      />
+      <StandardButton
+        text="Show Report"
+        colorTemplate="white"
+      />
     </div>
   </div>
 </template>
@@ -53,25 +62,5 @@
   font-size: 18px;
   line-height: 24px;
   color: #2dc78f;
-}
-.purple_btn {
-  background: #7445fb;
-  border-radius: 4px;
-  padding: 8px 16px;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 24px;
-  color: #ffffff;
-  border: none;
-}
-.white_btn {
-  background: #ffffff;
-  border: 1px solid #ebebf3;
-  border-radius: 4px;
-  padding: 8px 16px;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 24px;
-  color: #7445fb;
 }
 </style>

@@ -3,7 +3,7 @@ import SelectionSectionSummaryItem from "./SelectionSectionSummaryItem.vue";
 
 var chosenCrypto = [
   ["Bitcoin", "BTC", 12005.67, 2.56,"bitcoinLogo"],
-  ["Ethereum", "ETH", 3455.09, 1.27,"ethereumLogo"],
+  ["Ethereum", "ETH", 3455.09, -1.27,"ethereumLogo"],
 ];
 </script>
 

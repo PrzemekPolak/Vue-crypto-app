@@ -1,5 +1,7 @@
 <script setup>
 import ChartLine from "../ChartLine.vue";
+import StandardButton from "../StandardButton.vue";
+import valueChangeArrowIcon from "../icons/valueChangeArrowIcon.vue";
 
 const props = defineProps({
   cryptoName: String,
@@ -79,7 +81,15 @@ var chartOptions = {
     </div>
     <div style="align-self:center;">
       <div class="label_el">Change</div>
-      <div class="change_el">+{{ props.cryptoChange }}%</div>
+      <div class="flex">
+        <div class="change_el">
+          {{props.cryptoChange>0 ? '+' : ''}}{{ props.cryptoChange }}%
+        </div>
+        <valueChangeArrowIcon 
+          :increaseArrow="props.cryptoChange>0"
+          size="14px"
+        />
+      </div>
     </div>
     <div>
       <ChartLine
@@ -87,6 +97,16 @@ var chartOptions = {
         :chartOptions="chartOptions"
         chartId="SelectionChart"
         :useCustomPlugins=false
+      />
+    </div>
+    <div style="display: flex; gap: 8px;">
+      <StandardButton
+        text="Sell"
+        colorTemplate="white"
+      />
+      <StandardButton
+        text="Buy"
+        colorTemplate="purple"
       />
     </div>
   </div>
@@ -110,13 +130,13 @@ var chartOptions = {
   line-height: 14px;
   color: #9896A1;
   margin-bottom: 6px;
+  width: 100px;
 }
 .value_el {
   font-weight: 600;
   font-size: 14px;
   line-height: 14px;
   color: #0A041C;
-  width: 100px;
 }
 .change_el {
   font-weight: 600;
