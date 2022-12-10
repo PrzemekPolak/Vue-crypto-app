@@ -42,6 +42,7 @@ var chartData = {
 };
 var chartOptions = {
   responsive: true,
+  aspectRatio: 2 | 1,
   scales: {
     x: {
       display: false,
@@ -70,44 +71,42 @@ var chartOptions = {
 
 <template>
   <div class="main_item">
-    <img class="crypto_img" :src="'src/assets/'+props.cryptoLogo+'.png'"/>
-    <div style="align-self:center;">
+    <img class="crypto_img" :src="'src/assets/' + props.cryptoLogo + '.png'" />
+    <div class="text_group">
       <div class="label_el">{{ props.cryptoShortName }}</div>
       <div class="value_el">{{ props.cryptoName }}</div>
     </div>
-    <div style="align-self:center;">
+    <div class="text_group">
       <div class="label_el">price</div>
       <div class="value_el">${{ props.cryptoPrice }}</div>
     </div>
-    <div style="align-self:center;">
+    <div class="text_group">
       <div class="label_el">Change</div>
       <div class="flex">
-        <div class="change_el">
-          {{props.cryptoChange>0 ? '+' : ''}}{{ props.cryptoChange }}%
+        <div
+          class="change_el"
+          :class="props.cryptoChange > 0 ? 'green' : 'red'"
+        >
+          {{ props.cryptoChange > 0 ? "+ " : "- "
+          }}{{ Math.abs(props.cryptoChange) }}%
         </div>
-        <valueChangeArrowIcon 
-          :increaseArrow="props.cryptoChange>0"
+        <valueChangeArrowIcon
+          :increaseArrow="props.cryptoChange > 0"
           size="14px"
         />
       </div>
     </div>
-    <div>
+    <div class="chart_style">
       <ChartLine
         :chartData="chartData"
         :chartOptions="chartOptions"
         chartId="SelectionChart"
-        :useCustomPlugins=false
+        :useCustomPlugins="false"
       />
     </div>
-    <div style="display: flex; gap: 8px;">
-      <StandardButton
-        text="Sell"
-        colorTemplate="white"
-      />
-      <StandardButton
-        text="Buy"
-        colorTemplate="purple"
-      />
+    <div class="btn_group">
+      <StandardButton text="Sell" colorTemplate="white" />
+      <StandardButton text="Buy" colorTemplate="purple" />
     </div>
   </div>
 </template>
@@ -119,16 +118,16 @@ var chartOptions = {
   display: flex;
   padding: 20px;
   justify-content: space-between;
-  background: #FFFFFF;
+  background: #ffffff;
   margin-bottom: 8px;
-  border: 1px solid #EBEBF3;
+  border: 1px solid #ebebf3;
   border-radius: 8px;
 }
 .label_el {
   font-weight: 400;
   font-size: 14px;
   line-height: 14px;
-  color: #9896A1;
+  color: #9896a1;
   margin-bottom: 6px;
   width: 100px;
 }
@@ -136,17 +135,61 @@ var chartOptions = {
   font-weight: 600;
   font-size: 14px;
   line-height: 14px;
-  color: #0A041C;
+  color: #0a041c;
 }
 .change_el {
   font-weight: 600;
   font-size: 14px;
   line-height: 14px;
-  color: #2DC78F;
-/* color: #EA4D4D; */
+  margin-right: 4px;
+}
+.red {
+  color: #ea4d4d;
+}
+.green {
+  color: #2dc78f;
 }
 .crypto_img {
   width: 48px;
   height: 48px;
+}
+.text_group {
+  align-self: center;
+}
+.btn_group {
+  display: flex;
+  gap: 8px;
+}
+@media (max-width: 1000px) {
+  .main_item {
+    flex-direction: column;
+    height: auto;
+  }
+  .text_group {
+    display: flex;
+    align-self: start;
+  }
+  .crypto_img {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  .btn_group {
+    align-self: center;
+  }
+  .chart_style {
+    max-width: 150px;
+    align-self: center;
+    position: absolute;
+    top: 10;
+    left: 50%;
+  }
+}
+@media (max-width: 700px) {
+  .chart_style {
+    max-width: 200px;
+    align-self: center;
+    position: unset;
+  }
 }
 </style>

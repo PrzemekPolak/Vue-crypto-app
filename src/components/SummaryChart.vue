@@ -1,5 +1,6 @@
 <script setup>
 import ChartLine from "./ChartLine.vue";
+import ThreeDotsIcon from "./icons/ThreeDotsIcon.vue";
 
 var chartData = {
   labels: [
@@ -66,6 +67,7 @@ var chartData = {
 };
 var chartOptions = {
   responsive: true,
+  maintainAspectRatio: false,
   scales: {
     x: {
       display: false,
@@ -120,13 +122,18 @@ var chartOptions = {
 
 <template>
   <div class="main">
-    <div>I am summary chart</div>
-    <ChartLine
-      :chartData="chartData"
-      :chartOptions="chartOptions"
-      chartId="SummaryChart"
-      :useCustomPlugins=true
-    />
+    <div style="display: flex; justify-content: space-between">
+      <div class="header_text">Summary</div>
+      <ThreeDotsIcon size="20px" />
+    </div>
+    <div style="width: 90%; height: 70%; margin: auto">
+      <ChartLine
+        :chartData="chartData"
+        :chartOptions="chartOptions"
+        chartId="SummaryChart"
+        :useCustomPlugins="true"
+      />
+    </div>
   </div>
 </template>
 
@@ -134,16 +141,38 @@ var chartOptions = {
 .main {
   background: #f7f7f9;
   border-radius: 16px;
-  width: 500px;
   height: 336px;
   grid-row: 3;
-
   padding: 16px;
+  max-width: 560px;
 }
-
 @media (min-width: 1200px) {
   .main {
     grid-row: 1;
+    grid-column: 2 / span 1;
+  }
+}
+.header_text {
+  font-weight: 600;
+}
+@media (max-width: 1200px) {
+  .main {
+    margin: auto;
+  }
+.main:after {
+  content: '';
+  display: block;
+  width: 100vw;
+  margin-left: calc(-30vw);
+  z-index: -1;
+}
+}
+@media (max-width: 580px) {
+  .main {
+    margin: 0;
+  }
+  .main:after {
+    content: none;
   }
 }
 </style>

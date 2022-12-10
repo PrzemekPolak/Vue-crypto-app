@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <img class="menu_img" src="@/assets/menuIcon.png"/>
+  <img class="menu_img" src="@/assets/menuIcon.png" />
 </template>
 
 <style scoped>
@@ -11,5 +11,9 @@
   height: 48px;
   background: #f7f7f9;
   border-radius: 8px;
+}
+.menu_img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
 </style>

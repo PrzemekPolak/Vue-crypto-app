@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <img class="notification_img" src="@/assets/notificationIcon.svg"/>
+    <img class="notification_img" src="@/assets/notificationIcon.svg" />
     <div class="red_circle"></div>
   </div>
 </template>
@@ -18,11 +18,15 @@
 .red_circle {
   width: 12px;
   height: 12px;
-  background: #EA4D4D;
-  border: 2px solid #FFFFFF;
+  background: #ea4d4d;
+  border: 2px solid #ffffff;
   border-radius: 100%;
   position: absolute;
   top: -3px;
   right: -3px;
+}
+.notification_img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
 </style>

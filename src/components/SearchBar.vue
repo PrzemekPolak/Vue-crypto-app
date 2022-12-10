@@ -2,7 +2,7 @@
 
 <template>
   <div class="search_main">
-    <img src="@/assets/searchIcon.png"/>
+    <img src="@/assets/searchIcon.png" />
     <input type="text" name="searchInput" placeholder="Search" />
   </div>
 </template>
@@ -24,5 +24,8 @@ input {
   font-size: 14px;
   line-height: 24px;
   margin-left: 8px;
+}
+input:focus-visible {
+  outline: none;
 }
 </style>

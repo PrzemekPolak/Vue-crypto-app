@@ -25,12 +25,16 @@ const props = defineProps({
   line-height: 24px;
   color: #9896a1;
 }
+.option_container:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
 .options_label {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   padding: 8px 0;
-  color: #9896A1;
+  color: #9896a1;
 }
 [type="radio"] {
   position: absolute;
@@ -42,12 +46,12 @@ const props = defineProps({
   bottom: -10px;
   left: 0;
   width: 100%;
-  border: solid 2px #7445FB;
+  border: solid 2px #7445fb;
 }
 [type="radio"]:checked + .options_label {
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
-  color: #0A041C;
+  color: #0a041c;
 }
 </style>

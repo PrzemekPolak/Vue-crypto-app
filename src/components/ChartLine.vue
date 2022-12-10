@@ -71,7 +71,7 @@ let plugins = [
 ];
 
 if (!props.useCustomPlugins) {
-  plugins = []
+  plugins = [];
 }
 </script>
 

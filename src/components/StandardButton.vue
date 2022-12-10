@@ -6,10 +6,16 @@ const props = defineProps({
 </script>
 
 <template>
-  <button :class="props.colorTemplate" class="standard_btn">{{props.text}}</button>
+  <button :class="props.colorTemplate" class="standard_btn">
+    {{ props.text }}
+  </button>
 </template>
 
 <style scoped>
+button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
 .standard_btn {
   border-radius: 4px;
   padding: 8px 16px;
