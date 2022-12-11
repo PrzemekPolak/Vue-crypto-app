@@ -71,3 +71,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+@media (max-width: 580px) {
+  body {
+    background: #f7f7f9;
+  }
+}

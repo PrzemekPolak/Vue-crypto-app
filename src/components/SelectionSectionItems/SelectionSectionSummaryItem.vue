@@ -59,7 +59,7 @@ var chartLabels = [
             </div>
             <ValueChangeArrowIcon
               :increaseArrow="props.cryptoChange > 0"
-              size="14px"
+              size="16px"
               :fill="false"
             />
           </div>

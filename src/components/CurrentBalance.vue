@@ -50,6 +50,7 @@ import ValueChangeArrowIcon from "./icons/ValueChangeArrowIcon.vue";
 @media (max-width: 580px) {
   .main {
     margin: 0;
+    margin-top: 90px;
   }
   .main:after {
     content: none;

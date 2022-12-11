@@ -36,6 +36,7 @@ main {
   main {
     padding-left: 0;
     padding-right: 0;
+    padding-top: 0;
   }
 }
 </style>

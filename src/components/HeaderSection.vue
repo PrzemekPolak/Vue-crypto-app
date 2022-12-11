@@ -27,6 +27,12 @@ import MenuIcon from "./icons/MenuIcon.vue";
 @media (max-width: 580px) {
   .main_div {
     padding: 16px 8px;
+    position: fixed;
+    top: 0;
+    z-index: 2000;
+    background-color: white;
+    width: 100%;
+    border-radius: 16px;
   }
   .right_side_group {
     gap: 8px;

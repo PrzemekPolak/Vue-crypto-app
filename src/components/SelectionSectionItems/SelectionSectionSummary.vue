@@ -35,7 +35,7 @@ export default {
             ]);
           });
         })
-        .catch((err) => {
+        .catch(() => {
           // If there is some problem with api, load example data
           this.chosenCrypto = [
             [
