@@ -10,14 +10,7 @@ import HeaderSection from "./components/HeaderSection.vue";
     <div>
       <HeaderSection />
     </div>
-    <div
-      style="
-        display: grid;
-        gap: 32px;
-        grid-auto-columns: 1fr;
-        grid-auto-flow: column;
-      "
-    >
+    <div class="main_content">
       <CurrentBalance />
       <SummaryChart />
       <SelectionSection />
@@ -29,9 +22,15 @@ import HeaderSection from "./components/HeaderSection.vue";
 main {
   background-color: white;
   color: #0a041c;
-
-  padding-left: 68px;
+  border-radius: 16px;
+  padding: 48px 68px;
   padding-right: 68px;
+}
+.main_content {
+  display: grid;
+  gap: 32px;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
 }
 @media (max-width: 580px) {
   main {

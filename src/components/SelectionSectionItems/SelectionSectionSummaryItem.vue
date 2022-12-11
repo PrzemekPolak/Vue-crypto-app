@@ -37,10 +37,7 @@ var chartLabels = [
 <template>
   <div class="main_item">
     <div class="item_left_group">
-      <img
-        class="crypto_img"
-        :src="props.cryptoLogo"
-      />
+      <img class="crypto_img" :src="props.cryptoLogo" />
       <div class="text_data">
         <div class="text_group">
           <div class="label_el">{{ props.cryptoShortName }}</div>

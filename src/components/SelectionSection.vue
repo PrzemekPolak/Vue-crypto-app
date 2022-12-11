@@ -75,6 +75,6 @@ var options = {
   height: 60px;
   width: 100%;
   z-index: 1000;
-  background: linear-gradient(rgba(247, 247, 249, 0.4), rgba(247, 247, 249, 1));
+  background: linear-gradient(180deg, rgba(247, 247, 249, 0) 0%, #f7f7f9 100%);
 }
 </style>

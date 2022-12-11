@@ -12,11 +12,7 @@ import ValueChangeArrowIcon from "./icons/ValueChangeArrowIcon.vue";
     </div>
     <div class="money_balance">$21 432.23</div>
     <div style="display: flex; margin-top: 16px; gap: 8px">
-      <ValueChangeArrowIcon 
-        :increaseArrow="true"
-        size="24px"
-        :fill="true" 
-      />
+      <ValueChangeArrowIcon :increaseArrow="true" size="24px" :fill="true" />
       <div class="balance_change_text">12% vs last month</div>
     </div>
     <div style="display: flex; gap: 8px; margin-top: auto">
@@ -61,7 +57,7 @@ import ValueChangeArrowIcon from "./icons/ValueChangeArrowIcon.vue";
 }
 
 .balance_header {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 20px;
   line-height: 24px;
 }

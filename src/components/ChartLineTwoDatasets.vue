@@ -32,17 +32,19 @@ let plugins = [
   {
     // Draw verticle line on hover
     afterDraw: (chart) => {
-      if (chart.tooltip._active.length) {
-        let posX = chart.tooltip._active[0].element.x;
-        let posY = chart.tooltip._active[0].element.y;
-        let yAxis = chart.scales.y;
-        let ctx = chart.ctx;
-        ctx.beginPath();
-        ctx.moveTo(posX, posY);
-        ctx.lineTo(posX, yAxis.bottom);
-        ctx.lineWidth = 2;
-        ctx.strokeStyle = chart.legend.legendItems[1].strokeStyle;
-        ctx.stroke();
+      if ("tooltip" in chart) {
+        if (chart.tooltip._active.length) {
+          let posX = chart.tooltip._active[0].element.x;
+          let posY = chart.tooltip._active[0].element.y;
+          let yAxis = chart.scales.y;
+          let ctx = chart.ctx;
+          ctx.beginPath();
+          ctx.moveTo(posX, posY);
+          ctx.lineTo(posX, yAxis.bottom);
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = chart.legend.legendItems[1].strokeStyle;
+          ctx.stroke();
+        }
       }
     },
   },
@@ -59,12 +61,14 @@ let plugins = [
   {
     // Display second tooltip with x-axis data on bottom
     afterDraw: (chart) => {
-      if (chart.tooltip._active.length) {
-        let value = chart.data.labels[chart.tooltip._active[0].index];
-        let posX = chart.tooltip._active[0].element.x;
-        let posY = chart.scales.y.bottom;
-        chart.ctx.font = "12px SF Pro Display";
-        chart.ctx.fillText(value, posX + 7, posY - 7);
+      if ("tooltip" in chart) {
+        if (chart.tooltip._active.length) {
+          let value = chart.data.labels[chart.tooltip._active[0].index];
+          let posX = chart.tooltip._active[0].element.x;
+          let posY = chart.scales.y.bottom;
+          chart.ctx.font = "12px SF Pro Display";
+          chart.ctx.fillText(value, posX + 7, posY - 7);
+        }
       }
     },
   },
@@ -87,9 +91,11 @@ var chartData = {
           0,
           canvas.height
         );
-        gradient.addColorStop(0, props.lineColors[0].slice(0, -1)+",0.5)");
-        gradient.addColorStop(0.6, props.lineColors[0].slice(0, -1)+",0.1)");
-        gradient.addColorStop(1, props.lineColors[0].slice(0, -1)+",0)");
+        gradient.addColorStop(
+          0.28,
+          props.lineColors[0].slice(0, -1) + ",0.16)"
+        );
+        gradient.addColorStop(1, props.lineColors[0].slice(0, -1) + ",0)");
         return gradient;
       },
       data: props.chartDatasets[0],
@@ -147,7 +153,7 @@ var chartOptions = {
       hoverRadius: 6,
     },
     line: {
-      tension: 1,
+      tension: 0.5,
     },
   },
   plugins: {
@@ -182,11 +188,7 @@ var chartOptions = {
 </script>
 
 <template>
-  <Line
-    :options="chartOptions"
-    :data="chartData"
-    :plugins="plugins"
-  />
+  <Line :options="chartOptions" :data="chartData" :plugins="plugins" />
 </template>
 
 <style scoped></style>

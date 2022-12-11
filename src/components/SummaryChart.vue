@@ -1,39 +1,88 @@
 <script setup>
 import ChartLineTwoDatasets from "./ChartLineTwoDatasets.vue";
 import ThreeDotsIcon from "./icons/ThreeDotsIcon.vue";
+</script>
 
-var chartDatasets= [
-  [        5, 5.51, 6.43, 7.41, 7.5, 7.66, 8.16, 9.09, 9.21, 9.78, 9.86, 10.02,
-        10.34, 10.4, 10.59, 11.24, 11.95, 12.87, 13.2, 13.77, 14.34, 15.09,
-        15.28, 15.49, 15.63, 16.05, 16.93, 17.26, 17.38, 17.4, 18.03, 18.99,
-        19.22, 20.16, 20.47, 20.9, 21.79, 22.2, 22.67, 22.7, 23.41, 24.36,
-        25.03, 25.14, 25.32, 26.13, 27.01, 27.73, 28.49, 28.51, 28.89, 28.82,
-        28.14, 27.43, 26.85, 26.35, 25.91, 25.06, 24.14, 23.21, 22.43, 22.03,
-        21.44, 21.37, 20.99, 20.12, 20, 19.43, 19.34, 18.47, 18.14, 17.23,
-        16.83, 16.35, 15.66, 15.24, 14.7, 13.71, 13.42, 13.38, 13.38, 13.32,
-        12.73, 12.51, 11.81, 11.58, 10.66, 9.96, 9.7, 9.59, 9.27, 8.54, 8.26,
-        8.08, 7.35, 6.69, 5.87, 5.58, 5.14, 4.71, 4.05,],
-  [        5, 5.51, 6.31, 6.97, 7.55, 8.28, 8.82, 9.72, 10.52, 10.56, 11.44, 11.84,
-        12.82, 13.53, 14.07, 14.43, 14.57, 15.11, 15.41, 15.44, 15.84, 16.59,
-        17.18, 17.75, 17.79, 18.38, 18.76, 19.53, 20.4, 20.52, 20.92, 21.86,
-        22.83, 22.99, 23.76, 24.14, 24.35, 24.44, 25.37, 25.67, 26.43, 27.38,
-        27.6, 27.7, 28.42, 28.99, 29.58, 29.87, 30.55, 31.13, 31.54, 32.21,
-        32.43, 33.16, 33.33, 34.03, 34.93, 35.11, 35.64, 35.66, 36.57, 37.43,
-        37.8, 38.79, 39.45, 39.95, 40.81, 41.1, 41.28, 42.13, 42.27, 41.58,
-        41.16, 40.79, 40.69, 39.93, 39.51, 39.06, 38.53, 38.19, 37.83, 37.39,
-        37.14, 36.89, 36.3, 36.12, 35.99, 35.11, 34.68, 34.55, 33.91, 32.91,
-        31.97, 31.1, 30.32, 29.63, 29.25, 28.6, 27.96, 27.84, 27.29,]
-]
-var chartLabels= [    5, 5.51, 6.43, 7.41, 7.5, 7.66, 8.16, 9.09, 9.21, 9.78, 9.86, 10.02, 10.34,
-    10.4, 10.59, 11.24, 11.95, 12.87, 13.2, 13.77, 14.34, 15.09, 15.28, 15.49,
-    15.63, 16.05, 16.93, 17.26, 17.38, 17.4, 18.03, 18.99, 19.22, 20.16, 20.47,
-    20.9, 21.79, 22.2, 22.67, 22.7, 23.41, 24.36, 25.03, 25.14, 25.32, 26.13,
-    27.01, 27.73, 28.49, 28.51, 28.89, 28.82, 28.14, 27.43, 26.85, 26.35, 25.91,
-    25.06, 24.14, 23.21, 22.43, 22.03, 21.44, 21.37, 20.99, 20.12, 20, 19.43,
-    19.34, 18.47, 18.14, 17.23, 16.83, 16.35, 15.66, 15.24, 14.7, 13.71, 13.42,
-    13.38, 13.38, 13.32, 12.73, 12.51, 11.81, 11.58, 10.66, 9.96, 9.7, 9.59,
-    9.27, 8.54, 8.26, 8.08, 7.35, 6.69, 5.87, 5.58, 5.14, 4.71, 4.05,].reverse()
-var lineColors = ["rgb(116,69,251)", "#858585"]
+<script>
+export default {
+  data() {
+    return {
+      chartDatasets: [],
+      chartLabels: [],
+      lineColors: ["rgb(116,69,251)", "#858585"],
+      loaded: false,
+    };
+  },
+  methods: {
+    convertTime(UNIX_timestamp) {
+      var date = new Date(UNIX_timestamp);
+      var months = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ];
+      var month = months[date.getMonth()];
+      var day = date.getDate();
+      return day + " " + month;
+    },
+    loadData() {
+      this.loaded = false;
+      fetch(
+        "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=USD&days=30&interval=daily"
+      )
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            return Promise.reject();
+          }
+        })
+        .then((data) => {
+          var chartDatasets = [];
+          var chartLabels = [];
+          data.prices.forEach((x) => {
+            chartDatasets.push((x[1] / 1000).toFixed(2));
+            chartLabels.push(this.convertTime(x[0]));
+          });
+          this.chartDatasets.push(chartDatasets);
+          this.chartLabels = chartLabels;
+
+          this.chartDatasets.push([...chartDatasets].reverse());
+          this.loaded = true;
+        })
+        .catch((err) => {
+          // If there is some problem with api, load example data
+          this.chartDatasets = [
+            [16.93, 5, 9.09, 22.87, 25.41, 12.87, 15.22, 4.05],
+            [16.93, 5, 9.09, 22.87, 25.41, 12.87, 15.22, 4.05].reverse(),
+          ];
+          this.chartLabels = [
+            "May 1",
+            "May 5",
+            "May 9",
+            "May 13",
+            "May 17",
+            "May 21",
+            "May 25",
+            "May 29",
+          ];
+          this.loaded = true;
+        });
+    },
+  },
+  mounted() {
+    this.loadData();
+  },
+};
 </script>
 
 <template>
@@ -44,6 +93,7 @@ var lineColors = ["rgb(116,69,251)", "#858585"]
     </div>
     <div style="width: 99%; height: 100%">
       <ChartLineTwoDatasets
+        v-if="loaded"
         :chartDatasets="chartDatasets"
         :chartLabels="chartLabels"
         :lineColors="lineColors"
@@ -68,7 +118,7 @@ var lineColors = ["rgb(116,69,251)", "#858585"]
   }
 }
 .header_text {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 20px;
   line-height: 24px;
 }

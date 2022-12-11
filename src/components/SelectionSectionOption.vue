@@ -26,8 +26,10 @@ const props = defineProps({
   color: #9896a1;
 }
 .option_container:hover {
-  cursor: pointer;
   transform: scale(1.05);
+}
+.options_label:hover {
+  cursor: pointer;
 }
 .options_label {
   font-weight: 400;

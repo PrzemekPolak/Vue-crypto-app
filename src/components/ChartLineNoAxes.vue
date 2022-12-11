@@ -53,6 +53,9 @@ var chartOptions = {
       radius: 0,
       hoverRadius: 0,
     },
+    line: {
+      tension: 0.5,
+    },
   },
   plugins: {
     legend: {
@@ -66,10 +69,7 @@ var chartOptions = {
 </script>
 
 <template>
-  <Line
-    :options="chartOptions"
-    :data="chartData"
-  />
+  <Line :options="chartOptions" :data="chartData" />
 </template>
 
 <style scoped></style>

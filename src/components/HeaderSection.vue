@@ -17,7 +17,6 @@ import MenuIcon from "./icons/MenuIcon.vue";
 <style scoped>
 .main_div {
   display: flex;
-  padding-top: 48px;
   padding-bottom: 32px;
 }
 .right_side_group {
