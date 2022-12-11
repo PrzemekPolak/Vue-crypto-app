@@ -46,7 +46,8 @@ const props = defineProps({
   bottom: -10px;
   left: 0;
   width: 100%;
-  border: solid 2px #7445fb;
+  border: solid 1px #7445fb;
+  height: 2px;
 }
 [type="radio"]:checked + .options_label {
   font-weight: 500;
