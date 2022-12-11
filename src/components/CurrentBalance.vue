@@ -1,7 +1,7 @@
 <script setup>
 import StandardButton from "./StandardButton.vue";
 import ThreeDotsIcon from "./icons/ThreeDotsIcon.vue";
-import valueChangeArrowIcon from "./icons/valueChangeArrowIcon.vue";
+import ValueChangeArrowIcon from "./icons/ValueChangeArrowIcon.vue";
 </script>
 
 <template>
@@ -12,7 +12,11 @@ import valueChangeArrowIcon from "./icons/valueChangeArrowIcon.vue";
     </div>
     <div class="money_balance">$21 432.23</div>
     <div style="display: flex; margin-top: 16px; gap: 8px">
-      <valueChangeArrowIcon :increaseArrow="true" size="24px" />
+      <ValueChangeArrowIcon 
+        :increaseArrow="true"
+        size="24px"
+        :fill="true" 
+      />
       <div class="balance_change_text">12% vs last month</div>
     </div>
     <div style="display: flex; gap: 8px; margin-top: auto">
@@ -39,13 +43,13 @@ import valueChangeArrowIcon from "./icons/valueChangeArrowIcon.vue";
   .main {
     margin: auto;
   }
-.main:after {
-  content: '';
-  display: block;
-  width: 100vw;
-  margin-left: calc(-30vw);
-  z-index: -1;
-}
+  .main:after {
+    content: "";
+    display: block;
+    width: 100vw;
+    margin-left: calc(-30vw);
+    z-index: -1;
+  }
 }
 @media (max-width: 580px) {
   .main {

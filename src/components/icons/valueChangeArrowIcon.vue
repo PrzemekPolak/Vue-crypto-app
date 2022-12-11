@@ -2,6 +2,7 @@
 const props = defineProps({
   increaseArrow: Boolean,
   size: String,
+  fill: Boolean,
 });
 </script>
 
@@ -9,9 +10,9 @@ const props = defineProps({
   <img
     v-if="increaseArrow"
     class="img_style"
-    src="@/assets/increaseArrowIcon.png"
+    :src="props.fill ? 'src/assets/increaseArrowIconFull.png' : 'src/assets/increaseArrowIcon.png'"
   />
-  <img v-else class="img_style" src="@/assets/decreaseArrowIcon.png" />
+  <img v-else class="img_style" :src="props.fill ? 'src/assets/decreaseArrowIconFull.png' : 'src/assets/decreaseArrowIcon.png'" />
 </template>
 
 <style scoped>

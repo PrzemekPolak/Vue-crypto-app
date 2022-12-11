@@ -10,7 +10,14 @@ import HeaderSection from "./components/HeaderSection.vue";
     <div>
       <HeaderSection />
     </div>
-    <div style="display: grid; gap: 32px; grid-auto-columns: 1fr; grid-auto-flow: column;">
+    <div
+      style="
+        display: grid;
+        gap: 32px;
+        grid-auto-columns: 1fr;
+        grid-auto-flow: column;
+      "
+    >
       <CurrentBalance />
       <SummaryChart />
       <SelectionSection />

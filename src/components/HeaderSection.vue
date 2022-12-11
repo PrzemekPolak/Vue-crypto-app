@@ -23,7 +23,7 @@ import MenuIcon from "./icons/MenuIcon.vue";
 .right_side_group {
   margin-left: auto;
   display: flex;
-  gap: 16px
+  gap: 16px;
 }
 @media (max-width: 580px) {
   .main_div {
