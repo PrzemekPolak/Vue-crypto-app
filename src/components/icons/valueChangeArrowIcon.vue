@@ -10,7 +10,20 @@ const props = defineProps({
   <img
     v-if="increaseArrow"
     class="img_style"
-    :src="props.fill ? 'src/assets/increaseArrowIconFull.png' : 'src/assets/increaseArrowIcon.png'"
+    :src="
+      props.fill
+        ? '@/assets/increaseArrowIconFull.png'
+        : '@/assets/increaseArrowIcon.png'
+    "
+  />
+  <img
+    v-else
+    class="img_style"
+    :src="
+      props.fill
+        ? '@/assets/decreaseArrowIconFull.png'
+        : '@/assets/decreaseArrowIcon.png'
+    "
   />
   <img v-else class="img_style" :src="props.fill ? 'src/assets/decreaseArrowIconFull.png' : 'src/assets/decreaseArrowIcon.png'" />
 </template>
